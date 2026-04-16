@@ -1,3 +1,12 @@
+# FlowBoard 🚀
+
+[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://flowboard-client.vercel.app)
+[![Frontend](https://img.shields.io/badge/frontend-Vercel-black)](https://flowboard-client.vercel.app)
+[![Backend](https://img.shields.io/badge/backend-Render-purple)](https://flowboard-server.onrender.com)
+
+AI-powered project management tool with real-time Kanban boards, Claude AI integration, and team collaboration.
+
+**Demo credentials:** `alice@flowboard.dev` / `password123`
 # FlowBoard
 
 > AI-powered project management — like Jira/Trello, with Claude built in.
