@@ -1,0 +1,22 @@
+{
+  "name": "flowboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FlowBoard — AI-powered project management tool",
+  "workspaces": ["client", "server", "shared"],
+  "scripts": {
+    "dev": "concurrently -n \"server,client\" -c \"magenta,cyan\" \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w shared && npm run build -w server && npm run build -w client",
+    "install:all": "npm install && npm install -w client && npm install -w server && npm install -w shared",
+    "seed": "npm run seed -w server",
+    "lint": "npm run lint -w client && npm run lint -w server",
+    "start:server": "npm run start -w server",
+    "start:client": "npm run preview -w client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

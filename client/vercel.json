@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd .. && npm install && npm run build -w shared && npm run build -w client",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "echo 'install handled in buildCommand for monorepo'",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

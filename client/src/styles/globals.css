@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: 250 250 252;
+  --color-surface: 255 255 255;
+  --color-surface-alt: 245 246 250;
+  --color-border: 226 230 237;
+  --color-fg: 17 24 39;
+  --color-fg-muted: 107 114 128;
+}
+
+.dark {
+  --color-bg: 10 11 16;
+  --color-surface: 18 20 27;
+  --color-surface-alt: 26 29 38;
+  --color-border: 38 42 54;
+  --color-fg: 237 240 246;
+  --color-fg-muted: 148 156 172;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-bg text-fg font-sans antialiased;
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display tracking-tight;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-fg-muted));
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid theme('colors.brand.500');
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Utility: subtle grid backdrop for auth pages */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(var(--color-border) / 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-border) / 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Animated gradient blob for auth backdrop */
+.auth-blob {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.auth-blob::before,
+.auth-blob::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+  animation: float 18s ease-in-out infinite;
+}
+.auth-blob::before {
+  background: #6366F1;
+  top: -200px;
+  left: -150px;
+}
+.auth-blob::after {
+  background: #8B5CF6;
+  bottom: -200px;
+  right: -150px;
+  animation-delay: -9s;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -60px) scale(1.1); }
+}
